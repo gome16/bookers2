@@ -1,2 +1,19 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="d-flex justify-content-center align-items-center">
+  <div class="p-4">
+    <h1>
+      <span>welcome to</span>
+      <span class="font-weight-bold "><i class="fa-solid fa-book"></i>Bookers !!</span>
+    </h1>
+    <div>
+      <p><span>in</span><span class="font-weight-bold"><i class="fa-solid fa-book"></i>Bookers</span><br></p>
+      <p>you can share and exchange your opinions , inpressions , and emotions</p>
+      <p>about various books!</p>
+    </div>
+    <div>
+      <%= link_to "Log in",  new_user_session_path, class: "btn btn-info w-100 m-3" %>
+    </div>
+    <div>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success w-100 m-3" %>
+    </div>
+  </div>
+</div>
