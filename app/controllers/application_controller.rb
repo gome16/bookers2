@@ -9,10 +9,15 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def after_update_path_for(resource)
+    user_path(resource)
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction, :profile_image])
   end
 end
