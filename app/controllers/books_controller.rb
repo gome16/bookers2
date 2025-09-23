@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:top]
+  before_action :ensure_correct_book, only: [:edit, :update]
 
   def index
     @books = Book.all
