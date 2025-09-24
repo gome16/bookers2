@@ -20,7 +20,7 @@
           </div>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <%= link_to books_path, method: :get, class: "nav-link text-white" do %>
+              <%= link_to user_path(@user), method: :get, class: "nav-link text-white" do %>
                 <i class="fa-solid fa-house"></i> Home
               <% end %>
             </li>
@@ -48,7 +48,7 @@
           </div>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <%= link_to books_path, method: :get, class: "nav-link text-white" do %>
+              <%= link_to root_path, method: :get, class: "nav-link text-white" do %>
                 <i class="fa-solid fa-house"></i> Home
               <% end %>
             </li>

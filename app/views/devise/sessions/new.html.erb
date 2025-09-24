@@ -2,8 +2,7 @@
   <div class="row mt-4">
     <div class="col-md-3">
       <h2>Log in</h2>
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_with model: @user, url: user_session_path do |f| %>
         <div class="field">
           <%= f.label :Name %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>

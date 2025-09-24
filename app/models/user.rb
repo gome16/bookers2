@@ -9,8 +9,10 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, presence: false, length: { minimum: 2 }
-
+  validates :name, presence: true, length: { minimum: 2,maximum: 20 }
+  validates :introduction, presence: false, length: { maximum: 50 }
+  validates :name, presence: true, uniqueness: true
+  
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/default-image.jpg')
