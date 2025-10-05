@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show, :edit, :update]
-  resources :books, only: [:create, :edit, :update, :index, :show, :destroy] 
+  resources :books, only: [:create, :edit, :update, :index, :show, :destroy]
+  resource :favorite, only: [:create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
