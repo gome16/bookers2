@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/userinfo_newbook', user: @user, newbook: @newbook %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h1>Users</h1>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>follow</th>
+            <th>follower</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @follow_users.exists? || @follower_users.exists? %>
+            <tr>
+              <td>
+                <%= image_tag user.get_profile_image(90,90) %>
+              </td>
+              <td>
+                <%= user.name %>
+              </td>
+              <td>
+                <%= user.followings.count %>
+              </td>
+              <td>
+                <%= user.followers.count %>
+              </td>
+              <td><%= link_to "Show", user_path(user) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
