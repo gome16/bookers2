@@ -1,9 +1,10 @@
+<div class="d-flex justify-content-center"><%= render 'searches/form' %></div>
 <div class="container">
-  <% if @newbook.errors.any? %>
+  <% if newbook.errors.any? %>
     <div>
-      <h3><%= @newbook.errors.count %> errors prohibited this obj from being saved:</h3>
+      <h3><%= newbook.errors.count %> errors prohibited this obj from being saved:</h3>
       <ul>
-        <% @newbook.errors.full_messages.each do |message| %>
+        <% newbook.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -12,7 +13,7 @@
 
   <div class="row">
     <div class="col-md-3">
-      <%= render 'layouts/userinfo_newbook', user: @user, newbook: @newbook %>
+      <%= render 'layouts/userinfo_newbook', user: user, newbook: newbook %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -27,7 +28,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @books.each do |book| %>        
+          <% books.each do |book| %>        
             <tr>
               <td style="width: 110px;">
                 <%= link_to user_path(book.user) do %>
@@ -41,22 +42,10 @@
               </td>
               <td><%= book.body %></td>
               <td><%= link_to "show", user_path(book.user) %></td>
-              <% if book.favorited_by?(current_user) %>
-                <td>
-                  <%= link_to book_favorite_path(book), method: :delete do %>
-                    ♥<%= book.favorites.count %> いいね
-                  <% end %>
-                </td>
-              <% else %>
-                <td>
-                  <%= link_to book_favorite_path(book), method: :post do %>
-                    ♡<%= book.favorites.count %> いいね
-                  <% end %>
-                </td>
-              <% end %>
-              <td>
-                <%= book.book_comments.count %> コメント
+              <td id="favorite_btn_<%= book.id %>">
+                <%= render 'favorites/favorite_btn', book: book %>
               </td>
+              <td><%= book.book_comments.count %> コメント</td>
             </tr>
           <% end %>
         </tbody>
